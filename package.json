@@ -1,12 +1,12 @@
 {
-	"name": "exyleio-api",
-	"type": "module",
-	"main": "src/server.ts",
-	"dependencies": {
-		"graphql": "^16.6.0",
-		"graphql-yoga": "^3.0.0"
-	},
-	"devDependencies": {
-		"bun-types": "^0.2.2"
-	}
+  "name": "exyleio-api",
+  "type": "module",
+  "main": "src/server.ts",
+  "dependencies": {
+    "graphql": "^16.6.0",
+    "graphql-yoga": "^3.0.0"
+  },
+  "devDependencies": {
+    "bun-types": "^0.2.2"
+  }
 }
