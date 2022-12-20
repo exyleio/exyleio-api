@@ -2,13 +2,21 @@ version: "3"
 services:
   db:
     image: "redis:7-alpine"
-    restart: always
+    restart: unless-stopped
     network_mode: "host"
+
+  pocketbase:
+    image: spectado/pocketbase:latest
+    restart: unless-stopped
+    network_mode: "host"
+    volumes:
+      - ./pb_data:/pb_data
 
   server:
     depends_on:
       - db
-    restart: always
+      - pocketbase
+    restart: unless-stopped
     network_mode: "host"
     build: .
     volumes:

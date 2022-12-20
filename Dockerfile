@@ -1,9 +1,4 @@
-FROM jarredsumner/bun:edge
-RUN apk add --update nodejs
+FROM rust:1.65.0-alpine
 VOLUME /app
 WORKDIR /app
-COPY package.json package.json
-COPY bun.lockb bun.lockb
-RUN bun install
-COPY . .
-ENTRYPOINT ["bun", "run", "nodemon"]
+ENTRYPOINT ["cargo", "run"]
