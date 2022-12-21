@@ -7,5 +7,9 @@ edition = "2021"
 r2d2 = "0.8.10"
 r2d2_redis = "0.14.0"
 redis = "0.22.1"
-rocket = "0.5.0-rc.2"
+rocket = { version = "=0.5.0-rc.2", default-features = false, features = [
+    "json",
+] }
 rocket_db_pools = { version = "0.1.0-rc.2", features = ["deadpool_redis"] }
+rocket_okapi = { version = "0.8.0-rc.2", features = ["rapidoc"] }
+serde = "1.0.151"
