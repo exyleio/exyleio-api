@@ -1,6 +1,6 @@
 version: "3"
 services:
-  db:
+  redis:
     image: "redis:7-alpine"
     restart: unless-stopped
     network_mode: "host"
@@ -12,9 +12,9 @@ services:
     volumes:
       - ./pb_data:/pb_data
 
-  server:
+  api:
     depends_on:
-      - db
+      - redis
       - pocketbase
     restart: unless-stopped
     network_mode: "host"
