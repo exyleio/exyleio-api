@@ -3,4 +3,4 @@ FROM rust:1.65.0-alpine
 RUN apk add --update alpine-sdk
 VOLUME /app
 WORKDIR /app
-ENTRYPOINT ["cargo", "run"]
+ENTRYPOINT cargo run
