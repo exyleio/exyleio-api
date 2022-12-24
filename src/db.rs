@@ -1,4 +1,5 @@
 use rocket::fairing::AdHoc;
+use rocket::State;
 
 const REDIS_ADDRESS: &'static str = "redis://localhost:6379";
 
@@ -12,4 +13,9 @@ pub fn stage() -> AdHoc {
     AdHoc::on_ignite("Database Stage", |rocket| async {
         rocket.manage(DB { client })
     })
+}
+
+pub fn redis_cmd<T: redis::FromRedisValue>(db: &State<DB>, command: &str) -> Option<T> {
+    let mut conn = db.client.get_connection().unwrap();
+    return redis::cmd(command).query(&mut conn).unwrap();
 }

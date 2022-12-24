@@ -16,7 +16,6 @@ mod tests;
 mod db;
 mod json;
 mod routes;
-mod util;
 
 #[launch]
 fn rocket() -> _ {

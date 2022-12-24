@@ -1,5 +1,4 @@
-use crate::db::DB;
-use crate::util::redis_cmd;
+use crate::db::{redis_cmd, DB};
 use rocket::State;
 use rocket_okapi::openapi;
 
