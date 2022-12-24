@@ -5,5 +5,5 @@ COPY . .
 RUN cargo build --release
 
 FROM alpine:latest
-COPY --from=builder ./target/release/exyleio-api exyleio-api
-ENTRYPOINT exyleio-api
+COPY --from=builder ./target/release/exyleio-api ./exyleio-api
+ENTRYPOINT ./exyleio-api
