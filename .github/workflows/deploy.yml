@@ -19,6 +19,6 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v3
         with:
-          file: {context}/prod.Dockerfile
+          file: prod.Dockerfile
           push: true
           tags: developomp/exyleio-api:latest
