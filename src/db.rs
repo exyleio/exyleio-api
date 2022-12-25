@@ -1,7 +1,7 @@
 use rocket::fairing::AdHoc;
 use rocket::State;
 
-const REDIS_ADDRESS: &'static str = "redis://localhost:6379";
+const REDIS_ADDRESS: &'static str = "redis://0.0.0.0:6379";
 
 pub struct DB {
     pub client: redis::Client,
