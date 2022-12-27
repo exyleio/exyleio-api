@@ -2,12 +2,20 @@ use rocket_okapi::okapi::schemars;
 use rocket_okapi::okapi::schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
 
+/// Contains all information about a Player
 #[derive(Serialize, Deserialize, JsonSchema)]
 #[serde(rename_all = "camelCase")]
 pub struct Player {
+    /// A unique and unchanging identifier of the player
+    pub id: String,
+    /// A unique but variable identifier of the player
     pub username: String,
+    pub tags: Vec<Tag>,
 }
 
+/// Common statistics across all game modes
+#[derive(Serialize, Deserialize, JsonSchema)]
+#[serde(rename_all = "camelCase")]
 pub struct BaseGameModeStats {
     pub days_number_one: i32,
     pub longest_number_one: i32,
@@ -19,10 +27,10 @@ pub struct BaseGameModeStats {
     pub rank_peak: i32,
 }
 
+#[derive(Serialize, Deserialize, JsonSchema)]
+#[serde(rename_all = "PascalCase")]
 pub enum Tag {
-    SupporterTier1,
-    SupporterTier2,
-    SupporterTier3,
+    Supporter,
     Moderator,
     POMP,
     Contributor,
@@ -30,6 +38,8 @@ pub enum Tag {
     ClanCoLeader,
 }
 
+#[derive(Serialize, Deserialize, JsonSchema)]
+#[serde(rename_all = "PascalCase")]
 pub enum GameMode {
     BattleRoyale,
     CapturePoints,
@@ -42,6 +52,8 @@ pub enum GameMode {
     Vehicles,
 }
 
+#[derive(Serialize, Deserialize, JsonSchema)]
+#[serde(rename_all = "PascalCase")]
 pub enum Tier {
     Unranked,
     Iron,
