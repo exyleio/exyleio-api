@@ -9,6 +9,7 @@ services:
   pocketbase:
     image: spectado/pocketbase:latest
     restart: unless-stopped
+    command: pocketbase serve --http=0.0.0.0:8090
     network_mode: "host"
     volumes:
       - ./pb_data:/pb_data
