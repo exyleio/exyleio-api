@@ -16,7 +16,7 @@
 use rocket::fairing::AdHoc;
 use rocket::State;
 
-const REDIS_ADDRESS: &'static str = "redis://0.0.0.0:6379";
+const REDIS_ADDRESS: &'static str = "redis://redis:6379";
 
 /// Database Struct that gets passed when there's a request
 pub struct DB {
