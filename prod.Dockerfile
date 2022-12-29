@@ -1,10 +1,7 @@
 # Build API Binary
 FROM rust:1-alpine AS builder
-RUN apk add \
-    # prevent "linking with `cc` failed" error
-    alpine-sdk \
-    # required to build pocketbase-sdk
-    openssl openssl-dev
+# prevent "linking with `cc` failed" error
+RUN apk add alpine-sdk
 COPY . .
 RUN cargo build --release
 
