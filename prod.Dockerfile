@@ -9,4 +9,4 @@ RUN cargo build --release
 FROM alpine:latest
 COPY --from=builder ./target/release/exyleio-api ./exyleio-api
 COPY Rocket.toml Rocket.toml
-ENTRYPOINT ./exyleio-api
+CMD ["./exyleio-api"]

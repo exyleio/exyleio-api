@@ -4,4 +4,4 @@ WORKDIR /app
 # prevent "linking with `cc` failed" error
 RUN apk add alpine-sdk
 RUN cargo install cargo-watch
-ENTRYPOINT cargo watch -x run
+CMD ["cargo", "watch", "-x", "run"]
