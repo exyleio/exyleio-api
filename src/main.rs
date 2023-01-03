@@ -1,5 +1,5 @@
 use rocket_okapi::{
-    rapidoc::{make_rapidoc, GeneralConfig, HideShowConfig, RapiDocConfig},
+    rapidoc::{make_rapidoc, GeneralConfig, HideShowConfig, RapiDocConfig, Theme, UiConfig},
     settings::UrlObject,
 };
 
@@ -27,6 +27,10 @@ fn rocket() -> _ {
             make_rapidoc(&RapiDocConfig {
                 general: GeneralConfig {
                     spec_urls: vec![UrlObject::new("General", "../openapi.json")],
+                    ..Default::default()
+                },
+                ui: UiConfig {
+                    theme: Theme::Dark,
                     ..Default::default()
                 },
                 hide_show: HideShowConfig {
