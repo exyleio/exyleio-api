@@ -9,12 +9,18 @@ services:
     volumes:
       - ./redis.conf:/etc/redis/redis.conf
 
+  web:
+    image: exyleio-web:latest
+    restart: unless-stopped
+    ports:
+      - 3000:80
+
   api:
     depends_on:
       - redis
     restart: unless-stopped
     ports:
-      - 8000:8000
+      - 80:8000
     build: .
     volumes:
       - .:/app
