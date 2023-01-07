@@ -1,3 +1,5 @@
+use rocket::http::Method;
+use rocket_cors::{AllowedOrigins, CorsOptions};
 use rocket_okapi::{
     rapidoc::{make_rapidoc, GeneralConfig, HideShowConfig, RapiDocConfig, Theme, UiConfig},
     settings::UrlObject,
@@ -19,7 +21,20 @@ mod routes;
 
 #[launch]
 fn rocket() -> _ {
+    let cors = CorsOptions::default()
+        .allowed_origins(AllowedOrigins::all())
+        .allowed_methods(
+            vec![Method::Get, Method::Post, Method::Patch]
+                .into_iter()
+                .map(From::from)
+                .collect(),
+        )
+        .allow_credentials(true)
+        .to_cors()
+        .unwrap();
+
     rocket::build()
+        .attach(cors)
         .attach(db::stage())
         .mount("/", routes::routes())
         .mount(
