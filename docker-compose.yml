@@ -10,7 +10,7 @@ services:
       - ./redis.conf:/etc/redis/redis.conf
 
   web:
-    image: exyleio-web:latest
+    image: developomp/exyleio-web:latest
     restart: unless-stopped
     ports:
       - 5173:80
