@@ -13,7 +13,7 @@ services:
     image: exyleio-web:latest
     restart: unless-stopped
     ports:
-      - 3000:80
+      - 5173:80
 
   api:
     depends_on:
