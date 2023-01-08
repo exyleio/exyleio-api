@@ -54,7 +54,7 @@ async def rapidoc():
                     on-nav-tag-click="expand-collapse"
                     schema-style="tree"
                     schema-expand-level="999"
-                    schema-description-expanded="false"
+                    schema-description-expanded="true"
                     schema-hide-read-only="always"
                     schema-hide-write-only="always"
                     default-schema-tab="model"
