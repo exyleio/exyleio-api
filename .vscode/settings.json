@@ -16,6 +16,6 @@
     "starlette",
     "unranked"
   ],
-  "python.linting.flake8Enabled": true,
-  "python.linting.mypyEnabled": true
+  "python.formatting.provider": "black",
+  "python.linting.flake8Enabled": true
 }
