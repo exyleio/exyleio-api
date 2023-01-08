@@ -1,3 +1,7 @@
 {
-  "recommendations": ["rust-lang.rust-analyzer"]
+  "recommendations": [
+    "ms-python.python",
+    "damildrizzy.fastapi-snippets",
+    "ms-azuretools.vscode-docker"
+  ]
 }

@@ -1,7 +1,6 @@
-FROM rust:1-alpine
+FROM python:3.11-slim
 VOLUME /app
 WORKDIR /app
-# prevent "linking with `cc` failed" error
-RUN apk add alpine-sdk
-RUN cargo install cargo-watch
-CMD ["cargo", "watch", "-x", "run"]
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+CMD ["uvicorn", "app.main:app", "--reload","--host", "0.0.0.0", "--port", "8000"] 

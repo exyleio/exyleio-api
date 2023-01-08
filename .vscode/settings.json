@@ -1,21 +1,18 @@
 {
   "cSpell.words": [
-    "Buildx",
-    "deadpool",
     "developomp",
     "DOCKERHUB",
-    "exyelio",
     "exyle",
     "exyleio",
-    "gqlgen",
-    "graphiql",
-    "graphqls",
+    "fastapi",
+    "firestore",
     "leaderboard",
     "openapi",
+    "pydantic",
     "rapidoc",
     "royale",
-    "schemars",
     "speedrun",
+    "starlette",
     "unranked"
   ]
 }

@@ -1,12 +1,6 @@
-# Build API Binary
-FROM rust:1-alpine AS builder
-# prevent "linking with `cc` failed" error
-RUN apk add alpine-sdk
-COPY . .
-RUN cargo build --release
-
-# Run API Binary
-FROM alpine:latest
-COPY --from=builder ./target/release/exyleio-api ./exyleio-api
-COPY Rocket.toml Rocket.toml
-CMD ["./exyleio-api"]
+FROM python:3.11-slim
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+COPY app app
+CMD ["uvicorn", "app.main:app", "--reload","--host", "0.0.0.0", "--port", "8000"] 
