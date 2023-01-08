@@ -1,10 +1,10 @@
-from enum import Enum
+from typing import Literal
 
-
-class Tag(Enum):
-    supporter = "supporter"
-    moderator = "moderator"
-    pomp = "pomp"
-    contributor = "contributor"
-    clan_leader = "clan_leader"
-    clan_co_leader = "clan_co_leader"
+Tag = Literal[
+    "supporter",
+    "moderator",
+    "pomp",
+    "contributor",
+    "clan_leader",
+    "clan_co_leader",
+]

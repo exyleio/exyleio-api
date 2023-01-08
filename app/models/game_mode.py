@@ -1,19 +1,20 @@
 from pydantic import BaseModel
-from enum import Enum
+from typing import Literal
 
 from .tier import Tier
 
 
-class GameMode(Enum):
-    battle_royale = 1
-    capture_points = 2
-    custom = 3
-    prop_hunt = 4
-    solo_death_match = 5
-    speedrun = 6
-    team_death_match = 7
-    tutorial = 8
-    vehicles = 9
+GameMode = Literal[
+    "battle_royale",
+    "capture_points",
+    "custom",
+    "prop_hunt",
+    "solo_death_match",
+    "speedrun",
+    "team_death_match",
+    "tutorial",
+    "vehicles",
+]
 
 
 class BaseGameModeStats(BaseModel):

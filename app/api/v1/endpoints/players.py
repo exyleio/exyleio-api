@@ -13,4 +13,8 @@ def get_player_by_ID(player_id: str) -> Any:
     Get a player by ID.
     """
 
-    return {"id": player_id, "username": "username", "tags": [models.Tag.pomp]}
+    return {
+        "id": player_id,
+        "username": "username",
+        "tags": ["pomp"],
+    }
