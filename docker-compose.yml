@@ -9,12 +9,6 @@ services:
     volumes:
       - ./redis.conf:/etc/redis/redis.conf
 
-  web:
-    image: developomp/exyleio-web:latest
-    restart: unless-stopped
-    ports:
-      - 5173:80
-
   api:
     depends_on:
       - redis
@@ -24,3 +18,11 @@ services:
     build: .
     volumes:
       - .:/app
+
+  web:
+    depends_on:
+      - api
+    image: developomp/exyleio-web:latest
+    restart: unless-stopped
+    ports:
+      - 5173:80
