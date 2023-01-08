@@ -2,7 +2,7 @@ from typing import Any
 
 from fastapi import APIRouter
 
-from app.db.redis import redis_manager
+from app import redis_manager
 
 
 router = APIRouter()
