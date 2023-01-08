@@ -31,8 +31,8 @@ async def rapidoc():
             <head>
                 <meta charset="utf-8">
                 <title>Exyle.io API | Documentation</title>
-                <script 
-                    type="module" 
+                <script
+                    type="module"
                     src="https://unpkg.com/rapidoc/dist/rapidoc-min.js"
                 ></script>
             </head>
@@ -73,6 +73,6 @@ async def rapidoc():
                     api-key-location="header"
                     fetch-credentials="same-origin">
                 </rapi-doc>
-            </body> 
+            </body>
         </html>
     """
