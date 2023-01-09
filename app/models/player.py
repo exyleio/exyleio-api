@@ -1,4 +1,5 @@
 from pydantic import BaseModel
+from .tag import Tag
 
 
 class Player(BaseModel):
@@ -7,9 +8,19 @@ class Player(BaseModel):
     """
 
     # A unique and unchanging identifier of the player
-    id: str
+    uid: str
+
     # A unique but variable identifier of the player
     username: str
+
+    email_verified: bool
+
+    # UNIX time (millisecond)
+    created_at: int
+
+    # UNIX time (millisecond)
+    last_login: int
+
     # badges: str
     # clan: str
     # coins: str
@@ -22,7 +33,7 @@ class Player(BaseModel):
     # lv: str
     # pfp_url: str
     # play_time_total: str
-    # tags List[Tag]
+    tags: list[Tag]
     # titles str
     # xp str
     # <game_mode>_stats: str

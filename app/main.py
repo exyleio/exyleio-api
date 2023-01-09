@@ -5,6 +5,12 @@ from starlette.middleware.cors import CORSMiddleware
 from app.api.v1.api import api_router
 from app.core.config import settings
 
+import firebase_admin
+
+
+cred = firebase_admin.credentials.Certificate("./serviceAccountKey.json")
+firebase_admin.initialize_app(cred)
+
 app = FastAPI(
     title="Exyle.io API",
     openapi_url=f"{settings.API_V1_STR}/openapi.json",

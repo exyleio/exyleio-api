@@ -1,18 +1,20 @@
 version: "3"
 services:
   redis:
-    image: redis:7-alpine
+    image: redis/redis-stack-server:latest
     restart: unless-stopped
-    command: ["redis-server", "/etc/redis/redis.conf"]
     ports:
       - 6379:6379
     volumes:
-      - ./redis.conf:/etc/redis/redis.conf
+      - ./redis-stack.conf:/redis-stack.conf
+      - ./redis_stack_data/:/data
 
   api:
     depends_on:
       - redis
     restart: unless-stopped
+    extra_hosts:
+      - host.docker.internal:host-gateway
     ports:
       - 80:8000
     build: .
